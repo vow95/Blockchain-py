@@ -12,7 +12,7 @@ from transaction import Transaction
 from wallet import Wallet
 
 # The reward we give to miners (for creating a new block)
-MINING_REWARD = 111101935
+MINING_REWARD = 111101937
 
 print(__name__)
 
