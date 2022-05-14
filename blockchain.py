@@ -3,7 +3,7 @@ import hashlib as hl
 
 import json
 import pickle
-
+import random
 # Import two functions from our hash_util.py file. Omit the ".py" in the import
 from utility.hash_util import hash_block
 from utility.verification import Verification
@@ -12,7 +12,7 @@ from transaction import Transaction
 from wallet import Wallet
 
 # The reward we give to miners (for creating a new block)
-MINING_REWARD = 111101937
+#MINING_REWARD = 111101937
 
 print(__name__)
 
@@ -30,6 +30,7 @@ class Blockchain:
         """The constructor of the Blockchain class."""
         # Our starting block for the blockchain
         genesis_block = Block(0, '', [], 100, 0)
+        self.MINING_QRID = random.randint(111110000000000, 111110000011111)
         # Initializing our (empty) blockchain list
         self.chain = [genesis_block]
         # Unhandled transactions
@@ -191,7 +192,8 @@ class Blockchain:
         #     'recipient': owner,
         #     'productid': MINING_REWARD
         # }
-        reward_transaction = Transaction('MINING',self.public_key, '', MINING_REWARD)
+        self.MINING_QRID = self.MINING_QRID +1
+        reward_transaction = Transaction('MINING',self.public_key, '', self.MINING_QRID)
         # Copy transaction instead of manipulating the original open_transactions list
         # This ensures that if for some reason the mining should fail, we don't have the reward transaction stored in the open transactions
         copied_transactions = self.__open_transactions[:]
