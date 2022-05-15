@@ -24,7 +24,6 @@ Build With The Help Of Python And Flask
 
 ## Procedure:
 
-- Clone this repository `git clone https://github.com/Aman-py/Blockchain-In-Python`
 - After Cloning Repository Just Simply Go In the Folder
 
     Example
